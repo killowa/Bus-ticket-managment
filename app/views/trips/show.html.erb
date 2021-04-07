@@ -1,2 +1,27 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<section class="trips-show">
+
+    <div class="container card">
+        <h1 class="card-title"><%=@trip.destination%> Trip</h1>
+        <div class="flex my1">
+            <strong>Source:</strong>
+            <%=@trip.source%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Destination:</strong>
+            <%=@trip.destination%>
+        </div>
+        
+        <div class="flex my1">
+            <strong>Starting Time::</strong>
+            <%=@trip.starting_time%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Ending time:</strong>
+            <%=@trip.ending_time%>
+        </div>
+
+    </div>
+
+</section>
