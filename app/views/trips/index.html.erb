@@ -1,10 +1,10 @@
-<section>
-    <div class="container">
-        <h1 class="my1">Trips</h1>
+<section class="trips">
+    <div class="container card">
+        <h1 class="my1 card-title">Trips</h1>
 
         <ul>
             <%@trips.each do |trip|%>
-                <li>A trip to <%=trip.destination%></li>
+                <li class="flex"><strong> A Trip to <%=trip.destination%> </strong><%=link_to "edit", edit_trip_path(trip), class: "links"%>  <%=link_to "delete", trip, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
             <%end%>
         </ul>
 

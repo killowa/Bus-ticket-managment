@@ -19,20 +19,34 @@ h1 {
   font-size: 30px;
 }
 
-a, .links {
+a {
   text-decoration: none;
   color: #fff;
 }
 
-a:hover, .links:hover {
+a:hover {
   border-bottom: #fff 2px solid;
 }
 
-.students a, .students .links {
+li {
+  margin-top: 15px;
+}
+
+.links {
+  text-decoration: none;
+  border-bottom: none;
   color: #333;
 }
 
-.students a:hover, .students .links:hover {
+.links:hover {
+  color: hotpink;
+}
+
+.students a {
+  color: #333;
+}
+
+.students a:hover {
   border-bottom: #333 2px solid;
 }
 
@@ -87,8 +101,9 @@ a:hover, .links:hover {
 .card {
   background-color: #fff;
   margin-top: 2em;
+  width: 380px;
   border-radius: 10px;
-  padding: 20px 20px;
+  padding: 10px 20px;
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -104,6 +119,7 @@ a:hover, .links:hover {
   background-color: #afbb06;
   border-radius: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
   padding: 8px;
 }
 

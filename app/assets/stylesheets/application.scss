@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import "./variable.scss";
 
+@mixin link($border-color, $color) {
+    color: $color;
+    &:hover {
+        border-bottom: $border-color 2px solid;
+    }
+}
 
 * {
     box-sizing: border-box;
@@ -23,14 +29,20 @@ h1 {
 
 a {
     text-decoration: none;
-    color: #fff;
-    &:hover {
-        border-bottom: #fff 2px solid;
-    }
+    @include link(#fff, #fff)
+}
+
+li {
+    margin-top: 15px;
 }
 
 .links {
-    @extend a;
+    text-decoration: none;
+    border-bottom: none;
+    color: #333;
+    &:hover {
+        color: hotpink;
+    }
 }
 
 .students {
@@ -87,8 +99,9 @@ a {
 .card {
     background-color: #fff;
     margin-top: 2em;
+    width: 380px;
     border-radius: 10px;
-    padding: 20px 20px;
+    padding: 10px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -105,12 +118,9 @@ a {
     background-color: rgb(175, 187, 6);
     border-radius: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 8px;
     &:hover {
         transform: scale(0.98);
     }
-}
-
-.form {
-
 }
