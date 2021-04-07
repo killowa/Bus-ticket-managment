@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+$primary-color: #9900cc;
+$secondary-color: #fff;
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "lato" ,"sans-serif";
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        border-bottom: #fff 2px solid;
+    }
+}
+
+.students {
+    a {
+        color: #333;
+
+        &:hover {
+            border-bottom: #333 2px solid;
+        }
+    }
+}
+
+.container {
+    margin: 0 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: $primary-color;
+    color: $secondary-color;
+    height: 80px;
+    ul {
+        @extend .flex;
+        li {
+            margin-left: 12px;
+        }
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+.my1 {
+    margin-top: 1em;
+}

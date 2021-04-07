@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'trips/index'
+  get 'trips/new'
+  get 'trips/create'
+  get 'trips/update'
+  get 'trips/destroy'
+  get 'trips/show'
+  resources :students
+
+  resources :trips do
+    resources :buses
+  end
 end

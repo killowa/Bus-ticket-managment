@@ -1,0 +1,12 @@
+<section class="students">
+    <div class="container my1">
+        <h1 class>Students:</h1>
+
+        <ul>
+            <% @students.each do |student| %>
+                <li class="my1"><%= link_to student.name, student%></li>
+            <% end %>
+        </ul>
+    </div>
+</section>
+
