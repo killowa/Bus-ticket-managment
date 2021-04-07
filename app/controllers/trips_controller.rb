@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trips.all
+    @trips = Trip.all
   end
 
   def new
@@ -8,7 +8,13 @@ class TripsController < ApplicationController
   end
 
   def create
-    Trip.create(trip_params)
+    @trip = Trip.create(trip_params)
+
+    if @trip.save
+      redirect_to trip
+    else
+      render :new
+    end
 
   end
 

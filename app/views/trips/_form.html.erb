@@ -1,0 +1,26 @@
+<%=form_with model: @trip do |form|%>
+
+    <div class="container flex my1">
+        <%=form.label :source%>
+        <%=form.text_field :source%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.label :destination%>
+        <%=form.text_field :destination%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.label :starting_time%>
+        <%=form.text_field :starting_time%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.label :ending_time%>
+        <%=form.text_field :ending_time%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.submit class: "btn"%>
+    </div>
+<%end%>

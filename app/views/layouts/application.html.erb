@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="body">
     <header>
         <nav class="navbar">
           <div class="container flex">
             <h1 class="logo">Trip</h1>
             <ul>
-                <li class="nav-item"><a>Home</a></li>
+                <li class="nav-item"><a><%=link_to "Home", "#"%></a></li>
                 <li class="nav-item"><a>Buses</a></li>
                 <li class="nav-item"><a>Students</a></li>
-                <li class="nav-item"><a>Trips</a></li>
+                <li class="nav-item"><a><%= link_to "Trips", trips_path, class: "links"%></a></li>
             </ul>
           </div>
         </nav>
