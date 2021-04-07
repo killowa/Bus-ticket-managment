@@ -10,31 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_231403) do
+ActiveRecord::Schema.define(version: 2021_04_07_053925) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
-    t.integer "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "trip_id", null: false
     t.index ["trip_id"], name: "index_buses_on_trip_id"
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.integer "bus_id", null: false
+    t.integer "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bus_id"], name: "index_students_on_bus_id"
+    t.index ["trip_id"], name: "index_students_on_trip_id"
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "trip_id", null: false
     t.integer "student_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_id"], name: "index_tickets_on_student_id"
-    t.index ["trip_id"], name: "index_tickets_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_04_05_231403) do
   end
 
   add_foreign_key "buses", "trips"
-  add_foreign_key "students", "buses"
+  add_foreign_key "students", "trips"
   add_foreign_key "tickets", "students"
-  add_foreign_key "tickets", "trips"
 end

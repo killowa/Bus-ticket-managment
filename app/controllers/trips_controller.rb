@@ -4,9 +4,12 @@ class TripsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
   end
 
   def create
+    Trip.create(trip_params)
+
   end
 
   def update
@@ -17,4 +20,11 @@ class TripsController < ApplicationController
 
   def show
   end
+
+  private  
+
+    def trip_params
+      params.require(:trip).permit(:source, :destination, :starting_time, :ending_time)
+    end
+
 end

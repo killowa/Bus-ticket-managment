@@ -1,4 +1,4 @@
 class Trip < ApplicationRecord
-    has_many :buses
-    has_many :tickets
+    has_many :bus
+    has_many :student
 end
