@@ -46,7 +46,7 @@ class BusesController < ApplicationController
 
   private
     def bus_params
-      params.require(:bus).permit(:capacity, :trip_id)
+      params.require(:bus).permit(:capacity)
     end
 
 end

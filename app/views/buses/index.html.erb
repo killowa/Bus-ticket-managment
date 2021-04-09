@@ -1,2 +1,14 @@
-<h1>Buses#index</h1>
-<p>Find me in app/views/buses/index.html.erb</p>
+<section class="buses">
+    <div class="container card">
+        <h1 class="my1 card-title">Buses</h1>
+
+        <ul>
+            <%@buses.each do |bus|%>
+                <li class="flex"><strong><%=link_to "Bus number#{bus.id}", bus, class: 'links'%> </strong> <%=link_to "edit", edit_bus_path(bus), class: "links"%>  <%=link_to "delete", bus, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
+            <%end%>
+        </ul>
+
+        <div class="my2"><%= link_to "New bus", new_bus_path, class: "btn"%></div>
+
+    </div>
+</section>
