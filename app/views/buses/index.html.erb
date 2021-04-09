@@ -4,7 +4,7 @@
 
         <ul>
             <%@buses.each do |bus|%>
-                <li class="flex"><strong><%=link_to "Bus number#{bus.id}", bus, class: 'links'%> </strong> <%=link_to "edit", edit_bus_path(bus), class: "links"%>  <%=link_to "delete", bus, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
+                <li class="flex"><strong><%=link_to "Bus number #{bus.id}", bus, class: 'links'%> </strong> <%=link_to "edit", edit_bus_path(bus), class: "links"%>  <%=link_to "delete", bus, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
             <%end%>
         </ul>
 

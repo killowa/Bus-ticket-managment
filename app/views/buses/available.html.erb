@@ -1,0 +1,11 @@
+<section class="center">
+    <div class="container card">
+        <%@trips.each do |trip|%>
+        
+            <li class="flex my1"><strong><%="A trip to #{trip.destination} from #{trip.starting_time} to #{trip.ending_time}"%></strong><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></li>
+
+            <div class="my1"><%=link_to "Take Trips", "bus", class: "btn"%></div>
+
+        <%end%>
+    </div>
+</section>

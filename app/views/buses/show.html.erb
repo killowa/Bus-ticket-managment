@@ -1,2 +1,26 @@
-<h1>Buses#show</h1>
-<p>Find me in app/views/buses/show.html.erb</p>
+<section class="buses-show">
+
+    <div class="container card">
+        <h1 class="card-title">Bus <%=@bus.id%></h1>
+        <div class="flex my1">
+            <strong>Bus number:</strong>
+            <%=@bus.id%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Capacity:</strong>
+            <%=@bus.capacity%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Has a Trip:</strong>
+            <%=@bus.trip_id ? "YES" : "NO"%>
+        </div>
+
+    </div>
+
+    <div class="container my1">
+        <%= link_to "Take a Trip", "#{@bus.id}/available-trips", class: "btn"%>
+    </div>
+
+</section>

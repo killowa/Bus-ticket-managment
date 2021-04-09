@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_043358) do
     t.integer "capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "trip_id", null: true
+    t.integer "trip_id", null: false
     t.index ["trip_id"], name: "index_buses_on_trip_id"
   end
 

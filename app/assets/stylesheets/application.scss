@@ -96,6 +96,12 @@ li {
     width: 370px;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
     background-color: #fff;
     margin-top: 2em;

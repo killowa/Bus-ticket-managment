@@ -29,8 +29,10 @@ class BusesController < ApplicationController
 
   def destroy
     @bus = Bus.find(params[:id])
-    
     @bus.destroy
+
+    redirect_to buses_path
+
   end
 
   def create
@@ -42,6 +44,11 @@ class BusesController < ApplicationController
       render :new
     end
 
+  end
+
+  def available
+    @bus = Bus.find(params[:id])
+    @trips = Trip.all
   end
 
   private
