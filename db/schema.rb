@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_072828) do
+ActiveRecord::Schema.define(version: 2021_04_08_172014) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 2021_04_07_072828) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.integer "trip_id", null: false
+    t.integer "trip_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "department"
     t.index ["trip_id"], name: "index_students_on_trip_id"
   end
 

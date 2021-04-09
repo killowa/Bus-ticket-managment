@@ -1,2 +1,22 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<section class="student-show container">
+    <div class="contaner card">
+        <h1 class="card-title"><%=@student.name.partition(" ").first%></h1>
+
+        <div class="flex my1">
+            <strong>ID:</strong>
+            <%=@student.id%>
+        </div>
+
+        <div class="flex my1">
+            <strong>name:</strong>
+            <%=@student.name%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Department:</strong>
+            <%=@student.department%>
+        </div>
+
+        
+    </div>
+</section>

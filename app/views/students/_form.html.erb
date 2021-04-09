@@ -1,0 +1,16 @@
+<%=form_with model: @student do |form|%>
+
+    <div class="container flex my1">
+        <%=form.label :name%>
+        <%=form.text_field :name%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.label :department%>
+        <%=form.text_field :department%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.submit class: "btn"%>
+    </div>
+<%end%>
