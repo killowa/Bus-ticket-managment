@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_172014) do
+ActiveRecord::Schema.define(version: 2021_04_09_043358) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_04_08_172014) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "starting_time"
     t.integer "ending_time"
+    t.float "price"
+    t.integer "available_places"
   end
 
   add_foreign_key "buses", "trips"
