@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get "students/:id/trips-enroll", to: "trips#index"
 
   get "buses/:id/available-trips", to: "buses#available"
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   resources :students
   resources :buses
   resources :trips
+  resources :tickets
 
 end

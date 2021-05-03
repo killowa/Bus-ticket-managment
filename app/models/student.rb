@@ -1,4 +1,4 @@
 class Student < ApplicationRecord
-  belongs_to :trip, optional: true
+  has_many :trips
   has_one :ticket
 end

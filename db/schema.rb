@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_043358) do
+ActiveRecord::Schema.define(version: 2021_05_01_044450) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "trip_id", null: false
+    t.integer "trip_id"
     t.index ["trip_id"], name: "index_buses_on_trip_id"
   end
 
@@ -30,10 +30,13 @@ ActiveRecord::Schema.define(version: 2021_04_09_043358) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "student_id", null: false
+    t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
+    t.integer "trip_id", null: false
     t.index ["student_id"], name: "index_tickets_on_student_id"
+    t.index ["trip_id"], name: "index_tickets_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -50,4 +53,5 @@ ActiveRecord::Schema.define(version: 2021_04_09_043358) do
   add_foreign_key "buses", "trips"
   add_foreign_key "students", "trips"
   add_foreign_key "tickets", "students"
+  add_foreign_key "tickets", "trips"
 end

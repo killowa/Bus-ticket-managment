@@ -1,3 +1,3 @@
 class Bus < ApplicationRecord
-  belongs_to :trip, optional: true
+  has_many :trips
 end

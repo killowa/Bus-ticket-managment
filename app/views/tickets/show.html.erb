@@ -1,0 +1,15 @@
+<section class="ticket container">
+    <div class="contaner card">
+        <h1 class="card-title"><%="Ticket number #{@ticket.id}"%></h1>
+
+        <div class="flex my1">
+            <strong>Trip:</strong>
+            <%=@ticket.trip.destination%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Price:</strong>
+            <%=@ticket.price%>
+        </div>
+
+</section>

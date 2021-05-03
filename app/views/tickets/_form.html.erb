@@ -1,0 +1,11 @@
+<%=form_with model: @ticket do |form|%>
+
+    <div class="container flex my1">
+        <%=form.label :trip%>
+        <%=form.text_field :trip%>
+    </div>
+
+    <div class="container flex my1">
+        <%=form.submit class: "btn"%>
+    </div>
+<%end%>

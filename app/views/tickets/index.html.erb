@@ -1,0 +1,14 @@
+<section class="tickets">
+    <div class="container card my1">
+        <h1 class="card-title">Tickets</h1>
+        
+        <ul>
+            <%@tickets.each do |ticket|%>
+            <li class="flex"><strong><%=link_to "Ticket to #{ticket.trip.destination}", ticket, class: 'links'%> </strong> <%=link_to "edit", edit_ticket_path(ticket), class: "links"%>  <%=link_to "delete", ticket, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
+            <%end%>
+        </ul>
+
+        <div class="my2"><%= link_to "Add Ticket", new_ticket_path, class: "btn"%></div>
+
+    </div>
+</section>
