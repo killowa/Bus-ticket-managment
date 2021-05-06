@@ -14,13 +14,22 @@
 
         <div class="flex my1">
             <strong>Has a Trip:</strong>
-            <%=@bus.trip_id ? "YES" : "NO"%>
+            <%=@bus.trips.empty? ? "NO": "Yes"%>
         </div>
 
     </div>
 
-    <div class="container my1">
-        <%= link_to "Take a Trip", "#{@bus.id}/available-trips", class: "btn"%>
+    <div class="flex">
+        <div class="container my1">
+            <%= link_to "Take a Trip", new_bus_trip_path(@bus), class: "btn"%>
+        </div>
+
+        <%if !@bus.trips.empty?%>
+            <div class="container my1 mr-auto ml0">
+                <%= link_to "Show Trips", bus_trips_path(@bus), class: "btn"%>
+            </div>
+        <%end%>
     </div>
 
+    
 </section>

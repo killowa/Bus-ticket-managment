@@ -1,4 +1,4 @@
-<%=form_with model: @trip do |form|%>
+<%=form_with model: [@bus, @bus.trips.build] do |form|%>
 
     <div class="container flex my1">
         <%=form.label :source%>

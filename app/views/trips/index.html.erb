@@ -4,11 +4,10 @@
 
         <ul>
             <%@trips.each do |trip|%>
-                <li class="flex"><strong>A trip to <%=link_to trip.destination, trip, class: 'links'%> </strong> <%=link_to "edit", edit_trip_path(trip), class: "links"%>  <%=link_to "delete", trip, method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
+                <li class="flex"><strong>A trip to <%=link_to trip.destination, bus_trip_path(@bus, trip), class: 'links'%> </strong> <%=link_to "edit", edit_bus_trip_path(@bus, trip), class: "links"%>  <%=link_to "delete", bus_trip_path(@bus, trip), method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
             <%end%>
         </ul>
 
-        <div class="my2"><%= link_to "New Trip", new_trip_path, class: "btn"%></div>
 
     </div>
 </section>

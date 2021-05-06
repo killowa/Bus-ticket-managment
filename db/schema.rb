@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_231443) do
+ActiveRecord::Schema.define(version: 2021_05_06_084100) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -18,6 +18,24 @@ ActiveRecord::Schema.define(version: 2021_05_03_231443) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "trip_id"
     t.index ["trip_id"], name: "index_buses_on_trip_id"
+  end
+
+  create_table "buses_trips", force: :cascade do |t|
+    t.integer "bus_id"
+    t.integer "trip_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bus_id"], name: "index_buses_trips_on_bus_id"
+    t.index ["trip_id"], name: "index_buses_trips_on_trip_id"
+  end
+
+  create_table "buses_trips_tables", id: false, force: :cascade do |t|
+    t.integer "bus_id"
+    t.integer "trip_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bus_id"], name: "index_buses_trips_tables_on_bus_id"
+    t.index ["trip_id"], name: "index_buses_trips_tables_on_trip_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -58,6 +76,8 @@ ActiveRecord::Schema.define(version: 2021_05_03_231443) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

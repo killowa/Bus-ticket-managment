@@ -5,12 +5,14 @@ Rails.application.routes.draw do
   get "students/:id/trips-enroll", to: "trips#index"
 
   get "buses/:id/available-trips", to: "buses#available"
+  get "trips", to: "trips#index"
 
   root "students#index"
 
   resources :students
-  resources :buses
-  resources :trips
+  resources :buses do
+    resources :trips
+  end
   resources :tickets
 
 end
