@@ -1,5 +1,7 @@
 class BusesController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, only: :save_trip
+
   def index
     @buses = Bus.all
   end
@@ -10,6 +12,19 @@ class BusesController < ApplicationController
 
   def show
     @bus = Bus.find(params[:id])
+  end
+
+  def add_trip
+    @trips = Trip.select("id, destination")
+  end
+
+  def save_trip
+    @trip = Trip.find(params[:trip_id])
+    @bus = Bus.find(params[:id])
+
+    @bus.trips << @trip
+
+    redirect_to @bus
   end
 
   def update

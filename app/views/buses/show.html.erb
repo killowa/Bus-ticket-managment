@@ -22,17 +22,13 @@
     <div class="flex">
         <div class="container my1">
             <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn"%>
-        </div>
-
-        <div class="container my1 ml0">
-            <%= link_to "Take a Trip", "trips/add", class: "btn"%>
-        </div>
-
-        <%if !@bus.trips.empty?%>
-            <div class="container my1 mr-auto ml0">
+            <%= link_to "Take a Trip", "#{@bus.id}/add_trip", class: "btn"%>
+            <%if !@bus.trips.empty?%>
                 <%= link_to "Show Trips", bus_trips_path(@bus), class: "btn"%>
-            </div>
-        <%end%>
+            <%end%>
+        </div>
+
+        
     </div>
 
     

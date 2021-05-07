@@ -47,7 +47,14 @@ class TripsController < ApplicationController
   def destroy
     @bus = Bus.find(params[:bus_id])
     @trip = @bus.trips.find(params[:id])
-    @trip.destroy
+    @trip_buses_count = BusesTrip.where(trip_id: @trip.id).count
+
+    if @trip_buses_count > 1
+      @bus.trips.destroy(@trip)
+    else
+      @bus.trips.destroy(@trip)
+      @trip.destroy
+    end
 
     redirect_to bus_trips_path(@bus)
   end

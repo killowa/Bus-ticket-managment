@@ -1,0 +1,17 @@
+<section class="center">
+    <div class="card container">
+        <h1 class="card-title">Add Trip</h1>
+        <%=form_tag "save_trip" do%>
+            <%trips = []%>
+            <%@trips.each do |trip|%>
+                <% trips << [trip.destination, trip.id]%>
+            <%end%>
+
+            <li class="flex">
+            <%=select_tag(:trip_id, options_for_select(trips), class: "form-control")%> <%=submit_tag "Add Trip", class: "btn"%>
+            </li>
+
+        <%end%>
+    </div>
+</section>
+
