@@ -9,8 +9,16 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def list
+    @trips = Trip.all
+  end
+
   def create
     @bus = Bus.find(params[:bus_id])
+
+    # params[:trip][:starting_time] = params[:trip]["starting_time(4i)"] + ' : ' + params[:trip]["starting_time(5i)"]
+   
+    # params[:trip][:ending_time][:head] = params[:trip][:ending_time] + ' : ' + params[:trip][:ending_time]
     @trip = @bus.trips.build(trip_params)
 
     if @trip.save
@@ -37,10 +45,11 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @trip = Trip.find(params[:id])
+    @bus = Bus.find(params[:bus_id])
+    @trip = @bus.trips.find(params[:id])
     @trip.destroy
 
-    redirect_to trips_path
+    redirect_to bus_trips_path(@bus)
   end
 
   def show
@@ -50,7 +59,7 @@ class TripsController < ApplicationController
   private  
 
     def trip_params
-      params.require(:trip).permit(:price, :source, :destination, :starting_time, :ending_time)
+      params.require(:trip).permit(:price, :source, :destination, :starting_time, :ending_time, :prefix)
     end
 
 end

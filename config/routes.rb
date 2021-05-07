@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get "students/:id/trips-enroll", to: "trips#index"
 
   get "buses/:id/available-trips", to: "buses#available"
-  get "trips", to: "trips#index"
+  get "trips", to: "trips#list"
+  get "trips/add", to: "trips#add"
 
   root "students#index"
 

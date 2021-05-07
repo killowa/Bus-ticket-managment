@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_084100) do
+ActiveRecord::Schema.define(version: 2021_05_07_035722) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2021_05_06_084100) do
     t.index ["trip_id"], name: "index_students_on_trip_id"
   end
 
+  create_table "students_trips", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "trip_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_students_trips_on_student_id"
+    t.index ["trip_id"], name: "index_students_trips_on_trip_id"
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
@@ -62,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_084100) do
     t.string "destination"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "starting_time"
-    t.integer "ending_time"
+    t.string "starting_time"
+    t.string "ending_time"
     t.float "price"
     t.integer "available_places"
   end

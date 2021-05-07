@@ -13,13 +13,14 @@
         </div>
         
         <div class="flex my1">
-            <strong>Starting Time::</strong>
-            <%=@trip.starting_time%>
+            <strong>Starting Time:</strong>
+            <%# <%=@trip.starting_time[4] + "   :   " + @trip.starting_time[10, 11]%> %>
+            <%=debug(params)%> 
         </div>
 
         <div class="flex my1">
             <strong>Ending time:</strong>
-            <%=@trip.ending_time%>
+            <%# <%=@trip.ending_time[4] + "   :   " + @trip.ending_time[5]%> %>
         </div>
 
           <div class="flex my1">

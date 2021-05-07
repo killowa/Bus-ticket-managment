@@ -21,7 +21,11 @@
 
     <div class="flex">
         <div class="container my1">
-            <%= link_to "Take a Trip", new_bus_trip_path(@bus), class: "btn"%>
+            <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn"%>
+        </div>
+
+        <div class="container my1 ml0">
+            <%= link_to "Take a Trip", "trips/add", class: "btn"%>
         </div>
 
         <%if !@bus.trips.empty?%>
