@@ -1,0 +1,38 @@
+<section class="student-show container flex center">
+    <div class="card">
+        <h1 class="card-title"><%=current_user.name.partition(" ").first%></h1>
+
+        <div class="flex my1">
+            <strong>ID:</strong>
+            <%=current_user.id%>
+        </div>
+
+        <div class="flex my1">
+            <strong>name:</strong>
+            <%=current_user.name%>
+        </div>
+
+        <div class="flex my1">
+            <strong>Department:</strong>
+            <%=current_user.department%>
+        </div>
+        
+        <%if current_user.type == "Student"%>
+            <div class="div my2">
+                <%=link_to "Book Trip", "#{current_user.id}/trips", class: "btn"%>
+            </div>
+        <%end%>
+    </div>
+
+    <%if current_user.type == "Student" && !current_user.trips.empty?%>
+        <div class="card">
+            <h1 class="card-title">Trips</h1>
+        
+            <ul>
+                <%current_user.trips.each do |trip|%>
+                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{current_user.id}/trips/#{trip.id}", method: :delete, class: "links"%></li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
+</section>

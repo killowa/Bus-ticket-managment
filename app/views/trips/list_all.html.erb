@@ -1,0 +1,12 @@
+<section class="trips flex center">
+    <div class="container card">
+        <h1 class="my1 card-title">Trips</h1>
+
+        <ul>
+            <%@trips.each do |trip|%>
+                <li class="flex center"><strong class>trip to <%=label :trip, :destination, trip.destination%>
+            <%end%>
+        </ul>
+
+    </div>
+</section>

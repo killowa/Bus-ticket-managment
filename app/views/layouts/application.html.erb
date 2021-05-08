@@ -13,14 +13,27 @@
     <header>
         <nav class="navbar">
           <div class="container flex">
+
             <h1 class="logo">Harvard</h1>
+            <%if current_user%>
             <ul>
                 <li class="nav-item"><a><%=link_to "Home", root_path%></a></li>
-                <li class="nav-item"><%=link_to "Buses", buses_path%></li>
-                <li class="nav-item"><%= link_to "Students", students_path%></a></li>
                 <li class="nav-item"><a><%= link_to "Trips", "/trips"%></a></li>
-                <li class="nav-item"><a><%= link_to "Tickets", tickets_path%></a></li>
+                
+                <%if current_user.type == "Admin"%>
+                    <li class="nav-item"><%=link_to "Buses", buses_path%></li>
+                    <li class="nav-item"><%= link_to "Students", students_path%></a></li>
+                <%end%>
+
+                <%if current_user%>
+                  <li class="nav-item"><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
+                <%else%>
+                  <li class="nav-item"><a><%= link_to "Sign In", new_user_session_path%></a></li>
+                  <li class="nav-item"><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
+                <%end%>
             </ul>
+           
+            <%end%>
           </div>
         </nav>
     </header>

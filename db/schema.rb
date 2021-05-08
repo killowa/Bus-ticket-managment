@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_001728) do
+ActiveRecord::Schema.define(version: 2021_05_08_025307) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -47,16 +47,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_001728) do
     t.index ["trip_id"], name: "index_students_on_trip_id"
   end
 
-  create_table "students_trips", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "trip_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id", "trip_id"], name: "index_students_trips_on_student_id_and_trip_id", unique: true
-    t.index ["student_id"], name: "index_students_trips_on_student_id"
-    t.index ["trip_id"], name: "index_students_trips_on_trip_id"
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
@@ -78,6 +68,16 @@ ActiveRecord::Schema.define(version: 2021_05_08_001728) do
     t.integer "available_places"
   end
 
+  create_table "trips_users", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "trip_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id", "trip_id"], name: "index_trips_users_on_student_id_and_trip_id", unique: true
+    t.index ["student_id"], name: "index_trips_users_on_student_id"
+    t.index ["trip_id"], name: "index_trips_users_on_trip_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_001728) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "type"
+    t.string "department"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
