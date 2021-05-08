@@ -38,5 +38,37 @@
         </nav>
     </header>
     <%= yield %>
+
+   <footer class="footer">
+      <div class="container1">
+          <h2>About</h2>
+          <p>
+            Welcome to Harvard university trip managment system. It's a very well developed system which offers alot of features and facility. It allows you to easily book a trip by going to the trips page and choose the trips you want to go to. the trips prices are also pretty cheap hope you enjoy using our site.
+          </p>
+      </div>
+
+      <div class="container mr2">
+          <h2>User Types</h2>
+
+          <ul>
+            <li>Admins</li>
+            <li>Students</li>
+          </ul>
+      </div>
+
+      <div class="container mr2">
+          <h2>Quick links</h2>
+          <ul>
+              <li ><a><%=link_to "Home", root_path%></a></li>
+              <li ><a><%= link_to "Trips", "/trips"%></a></li>
+              <%if current_user%>
+              <li ><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
+              <%else%>
+              <li ><a><%= link_to "Sign In", new_user_session_path%></a></li>
+              <li ><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
+              <%end%>
+        </ul>
+      </div>
+   </footer>
   </body>
 </html>

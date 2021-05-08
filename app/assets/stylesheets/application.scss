@@ -15,6 +15,34 @@
     font-family: "lato" ,"sans-serif";
 }
 
+.primary-color {
+    background: $primary-color;
+}
+
+.footer {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 15px;
+    height: 200px;
+    width: 100%;
+    @extend .flex;
+    position: absolute;
+    bottom: 0;
+
+    .container1 {
+        width: 320px;
+        margin-left: 28px;
+    }
+
+    ul {
+        padding: 15px;
+    }
+}
+
+.mr2 {
+    margin-right: 2em !important;
+}
+
 body {
     background-color: #f2f2f2;
 }
@@ -68,7 +96,12 @@ li {
 
 .student-show.flex {
     @extend .flex;
-    flex-direction: column;
+    justify-content: center;
+    .card {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
 }
 
 .center {

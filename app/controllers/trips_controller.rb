@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   def list_all
     @trips = Trip.all
   end
+  
   def new
     @bus = Bus.find(params[:bus_id])
     @trip = Trip.new
