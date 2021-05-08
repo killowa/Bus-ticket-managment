@@ -1,5 +1,5 @@
-<section class="student-show container">
-    <div class="contaner card">
+<section class="student-show container flex center">
+    <div class="card">
         <h1 class="card-title"><%=@student.name.partition(" ").first%></h1>
 
         <div class="flex my1">
@@ -17,9 +17,20 @@
             <%=@student.department%>
         </div>
 
+        <div class="div my2">
+            <%=link_to "Book Trip", "#{@student.id}/trips", class: "btn"%>
+        </div>
+    </div>
+
+    <%if !@student.trips.empty?%>
+        <div class="card">
+            <h1 class="card-title">Trips</h1>
         
-    </div>
-    <div class="my1">
-        <%=link_to "Book Trip", "#{@student.id}/trips-enroll", class: "btn"%>
-    </div>
+            <ul>
+                <%@student.trips.each do |trip|%>
+                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{@student.id}/trips/#{trip.id}", method: :delete, class: "links"%></li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
 </section>

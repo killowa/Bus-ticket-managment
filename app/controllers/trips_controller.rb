@@ -10,6 +10,7 @@ class TripsController < ApplicationController
   end
 
   def list
+    @student = Student.find(params[:id])
     @trips = Trip.all
   end
 

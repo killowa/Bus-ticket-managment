@@ -21,6 +21,7 @@ body {
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
 h1 {
@@ -63,6 +64,11 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.student-show.flex {
+    @extend .flex;
+    flex-direction: column;
 }
 
 .center {
@@ -115,6 +121,10 @@ li {
     margin-left: 1em;
 }
 
+.ml2 {
+    margin-left: 2em;
+}
+
 .ml0 {
     margin-left: 0;
 }
@@ -151,4 +161,14 @@ li {
     &:hover {
         transform: scale(0.98);
     }
+}
+
+.badge {
+    padding: 3px 4px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.bg-success {
+    background-color: rgb(26, 128, 5);
 }

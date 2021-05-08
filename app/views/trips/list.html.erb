@@ -3,9 +3,9 @@
         <h1 class="my1 card-title">Trips</h1>
 
         <ul>
-            <%=form_tag "/trips", method: "get" do%> 
+            <%=form_tag "trips" do%> 
                 <%@trips.each do |trip|%>
-                    <li class="flex"><strong>A trip to <%=label :trip, :destination, trip.destination%> </strong> <%=check_box(:trip, :destination, checked_value: trip.id)%></li>
+                    <li class="flex"><strong class>A trip to <%=label :trip, :destination, trip.destination%>  </strong> <span class="badge bg-success"><%=trip.price%>$</span><%=check_box( :trip_id, trip.id)%></li>
 
                 <%end%>
                 <%=submit_tag "Book trips", class: "btn"%>
