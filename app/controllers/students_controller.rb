@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
     trips_ids = checked_trips.keys 
     @trips = Trip.where(id: trips_ids)
 
-    @student.trips = @student.trips + @trips
+    @student.trips = @student.trips + @trips # display error messege by rescue
 
     redirect_to @student
   end

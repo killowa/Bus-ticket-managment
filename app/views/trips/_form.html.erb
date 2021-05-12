@@ -17,14 +17,12 @@
 
     <div class="container flex my1">
         <%=form.label :starting_time%>
-        <%# <div class="form-control"><%=time_select :trip, :starting_time, ignore_date: true%>
-        <div class="form-control"><%=select_time%></div>
+        <div class="form-control"><input type="time" name="trip[starting_time]"></div>
     </div>
 
     <div class="container flex my1">
         <%=form.label :ending_time%>
-        <%# <div class="form-control"><%=time_select :trip, :ending_time, ignore_date: true%>
-        <div class="form-control"><%=select_time prefix: :starting_time%></div>
+        <div class="form-control"><input type="time" name="trip[ending_time]"></div>
     </div>
 
     <div class="container flex my1">

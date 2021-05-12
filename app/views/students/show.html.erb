@@ -28,7 +28,7 @@
         
             <ul>
                 <%@student.trips.each do |trip|%>
-                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{@student.id}/trips/#{trip.id}", method: :delete, class: "links"%></li>
+                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "students/#{@student.id}/trips/#{trip.id}", method: :delete, class: "links"%></li>
                 <%end%>
             </ul>
         </div>

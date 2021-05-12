@@ -21,9 +21,6 @@ class TripsController < ApplicationController
   def create
     @bus = Bus.find(params[:bus_id])
 
-    # params[:trip][:starting_time] = params[:trip]["starting_time(4i)"] + ' : ' + params[:trip]["starting_time(5i)"]
-   
-    # params[:trip][:ending_time][:head] = params[:trip][:ending_time] + ' : ' + params[:trip][:ending_time]
     @trip = @bus.trips.build(trip_params)
 
     if @trip.save
@@ -32,7 +29,6 @@ class TripsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "trips", to: 'trips#list_all'
   post ":id/trips", to: "students#add_trip"
   delete "students/:student_id/trips/:id", to: "students#remove_trip"
-  get "buses/:id/add_trip", to: "buses#add_trip"
+  get "buses/:id/add_trip", to: "buses#add_trip" #prevent student from accessing it
   post "buses/:id/save_trip", to: "buses#save_trip"
 
 

@@ -1,4 +1,4 @@
-<section class="buses-show">
+<section class="buses-show center">
 
     <div class="container card">
         <h1 class="card-title">Bus <%=@bus.id%></h1>
@@ -19,7 +19,9 @@
 
     </div>
 
-    <div class="flex">
+</section>
+
+ <div class="flex m1 center">
         <div class="container my1">
             <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn"%>
             <%= link_to "Take a Trip", "#{@bus.id}/add_trip", class: "btn"%>
@@ -30,6 +32,3 @@
 
         
     </div>
-
-    
-</section>

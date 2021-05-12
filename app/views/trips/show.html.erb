@@ -1,4 +1,4 @@
-<section class="trips-show">
+<section class="trips-show center">
 
     <div class="container card">
         <h1 class="card-title"><%=@trip.destination%> Trip</h1>
@@ -14,13 +14,12 @@
         
         <div class="flex my1">
             <strong>Starting Time:</strong>
-            <%# <%=@trip.starting_time[4] + "   :   " + @trip.starting_time[10, 11]%> %>
-            <%=debug(params)%> 
+            <%=@trip.starting_time%>
         </div>
 
         <div class="flex my1">
             <strong>Ending time:</strong>
-            <%# <%=@trip.ending_time[4] + "   :   " + @trip.ending_time[5]%> %>
+            <%=@trip.ending_time%>
         </div>
 
           <div class="flex my1">
