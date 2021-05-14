@@ -2,7 +2,7 @@ $( () => {$(".trips").hide()
     
     $("#showTrip").on("click", (event)=> {
         event.preventDefault()
-        $(".trips").hide()
+        $(".trips").toggle()
     });
 
     $.get("<%=new_student_path%>", data => {$(html).append(data)})

@@ -35,12 +35,13 @@
 
 </section>
 
- <div class="flex m1 center">
-        <div class="container my1">
-            <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn"%>
-            <%= link_to "Take a Trip", "#{@bus.id}/add_trip", class: "btn"%>
+ <div class="d-flex justify-content-center">
+        <div class="container d-flex justify-content-center my1">
+            <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn mx-2"%>
+            <%= link_to "Take a Trip", "#{@bus.id}/add_trip", class: "btn mx-2"%>
             <%if !@bus.trips.empty?%>
-                <input type="button" id="showTrip", class="btn" value="Show Trips"> 
+                <%# <input type="button" id="showTrip", class="btn mx-2" value="Show Trips">  %>
+                <%= link_to "Show Trip", @bus, class: "btn mx-2", id: "showTrip", remote: true%>
             <%end%>
         </div>
 </div>

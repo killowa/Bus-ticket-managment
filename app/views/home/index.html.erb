@@ -1,25 +1,25 @@
-<section class="student-show container flex center">
+<section class="student-show container d-flex flex-column align-items-center">
     <div class="card">
         <h1 class="card-title"><%=current_user.name.partition(" ").first%></h1>
 
-        <div class="flex my1">
+        <div class="d-flex justify-content-between my-1">
             <strong>ID:</strong>
             <%=current_user.id%>
         </div>
 
-        <div class="flex my1">
+        <div class="d-flex justify-content-between my-1">
             <strong>name:</strong>
             <%=current_user.name%>
         </div>
 
-        <div class="flex my1">
+        <div class="d-flex justify-content-between my-1">
             <strong>Department:</strong>
             <%=current_user.department%>
         </div>
         
         <%if current_user.type == "Student"%>
             <div class="div my2">
-                <%=link_to "Book Trip", "#{current_user.id}/trips", class: "btn"%>
+                <%=link_to "Book Trip", "#{current_user.id}/trips", class: "btn btn-warning my-1"%>
             </div>
         <%end%>
     </div>
@@ -30,7 +30,7 @@
         
             <ul>
                 <%current_user.trips.each do |trip|%>
-                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{current_user.id}/trips/#{trip.id}", method: :delete , class: "links" if policy(trip).destroy?%></li>
+                    <li class="text-center">Trip To <%=trip.destination%> <%=link_to "delete", "#{current_user.id}/trips/#{trip.id}", method: :delete , class: "links" if policy(trip).destroy?%></li>
                 <%end%>
             </ul>
         </div>

@@ -13,25 +13,26 @@
 
   <body class="body">
     <header>
-        <nav class="navbar bg-primary text-light">
-          <div class="container flex">
+        <nav class="navbar bg-primary d-flex ">
+          <div class="container">
 
-            <h1 class="logo">Harvard</h1>
+            <h1 class="text-light">Harvard</h1>
             <%if current_user%>
-            <ul class="text-light">
-                <li class="nav-item text-light"><a><%=link_to "Home", root_path%></a></li>
-                <li class="nav-item text-light"><a><%= link_to "Trips", "/trips"%></a></li>
+            <ul class="d-flex">
+                <li><%=link_to "Home", root_path, class: "mx-2 text-light "%></li>
+                <li><%= link_to "Trips", "/trips", class: "mx-2 text-light "%></li>
                 
                 <%if current_user.type == "Admin"%>
-                    <li class="nav-item text-light"><%=link_to "Buses", buses_path%></li>
-                    <li class="nav-item text-light"><%= link_to "Students", students_path%></a></li>
+                    <li><%=link_to "Buses", buses_path, class: "mx-2 text-light "%></li>
+                    <li> <%=link_to "Students", students_path, class: "mx-2 text-light "%></li>
                 <%end%>
 
+
                 <%if current_user%>
-                  <li class="nav-item text-light"><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "mx-2 text-light "%></li>
                 <%else%>
-                  <li class="nav-item text-light"><a><%= link_to "Sign In", new_user_session_path%></a></li>
-                  <li class="nav-item text-light"><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
+                  <li><%= link_to "Sign In", new_user_session_path, class: "mx-2 text-light "%></li>
+                  <li><%= link_to "Sign Up", new_user_registration_path, class: "mx-2 text-light "%></li>
                 <%end%>
             </ul>
            
@@ -41,7 +42,7 @@
     </header>
 
     <%flash.each do |type, msg|%>
-      <div class="alert alert-info">
+      <div class="text-center alert alert-danger">
           <%=msg%>
       </div>   
     <%end%> 
@@ -49,36 +50,55 @@
 
     <div class="gap"></div>
 
-   <footer class="footer">
-      <div class="container1">
-          <h2>About</h2>
-          <p>
-            Welcome to Harvard university trip managment system. It's a very well developed system which offers alot of features and facility. It allows you to easily book a trip by going to the trips page and choose the trips you want to go to. the trips prices are also pretty cheap hope you enjoy using our site.
-          </p>
-      </div>
+   <footer class="text-light bg-primary fixed-bottom">
+    <div class="container justify-content-between d-flex pt-2">
+        <div class="row">
+          <div class="col-4">
+            <h2>About</h2>
+            <p>
+              Welcome to Harvard university trip managment system. It's a very well developed system which offers alot of features and facility. It allows you to easily book a trip by going to the trips page and choose the trips you want to go to. the trips prices are also pretty cheap hope you enjoy using our site.
+            </p>
+          </div>
 
-      <div class="container mr2">
-          <h2>User Types</h2>
+          <div class="col-4">
+            <div class="container h-100 d-flex flex-column align-items-center">
+              <div class="row">
+                  <h2>User Types</h2>
+              </div>
+              <div class="row mt-3">
+                <ul>
+                  <li>Admins</li> 
+                  <li>Students</li>
+                </ul>
+              </div>
+            </div>
+              
+          </div>
 
-          <ul>
-            <li>Admins</li> 
-            <li>Students</li>
-          </ul>
-      </div>
+        <div class="col-4">
+            <div  class="container h-100 d-flex flex-column align-items-center">
+                <div class="row">
+                    <h2>Quick links</h2>
+                </div>
 
-      <div class="container mr2">
-          <h2>Quick links</h2>
-          <ul>
-                <li ><a><%=link_to "Home", root_path%></a></li>
-                <li ><a><%= link_to "Trips", "/trips"%></a></li>
-              <%if current_user%>
-                <li ><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
-              <%else%>
-                <li ><a><%= link_to "Sign In", new_user_session_path%></a></li>
-                <li ><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
-              <%end%>
-        </ul>
+                <div class="row mt-3">
+                    <ul>
+                      <li class="my-1"><a><%=link_to "Home", root_path, class: "text-light"%></a></li>
+                      <li class="my-1"><a><%= link_to "Trips", "/trips", class: "text-light"%></a></li>
+                      <%if current_user%>
+                        <li class="my-1"><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-light"%></a></li>
+                      <%else%>
+                        <li class="my-1"><a><%= link_to "Sign In", new_user_session_path, class: "text-light"%></a></li>
+                        <li class="my-1"><a><%= link_to "Sign Up", new_user_registration_path, class: "text-light"%></a></li>
+                      <%end%>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
       </div>
+    </div>
+      
    </footer>
   </body>
 </html>

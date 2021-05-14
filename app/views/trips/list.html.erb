@@ -5,10 +5,10 @@
         <ul>
             <%=form_tag "trips" do%> 
                 <%@trips.each do |trip|%>
-                    <li class="flex"><strong class>A trip to <%=label :trip, :destination, trip.destination%>  </strong> <span class="badge bg-success"><%=trip.price%>$</span><%=check_box( :trip_id, trip.id)%></li>
+                    <li class="d-flex justify-content-between my-2"><strong class>A trip to <%=label :trip, :destination, trip.destination%>  </strong> <span class="badge bg-success"><%=trip.price%>$</span><%=check_box( :trip_id, trip.id)%></li>
 
                 <%end%>
-                <%=submit_tag "Book trips", class: "btn"%>
+                <%=submit_tag "Book trips", class: "btn btn-warning my-1"%>
             <%end%> 
         </ul>
 
