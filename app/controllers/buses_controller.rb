@@ -4,6 +4,12 @@ class BusesController < ApplicationController
 
   def index
     @buses = Bus.all
+
+    begin
+      authorize @buses
+    rescue Pundit::NotAuthorizedError
+      redirect_to root_path, alert: "You don't have access to this page"
+    end
   end
 
   def new

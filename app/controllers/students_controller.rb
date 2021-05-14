@@ -4,6 +4,11 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    begin
+      authorize @students
+    rescue Pundit::NotAuthorizedError
+      redirect_to root_path, alert: "You don't have access to this page"
+    end
   end
 
   def show
@@ -17,9 +22,12 @@ class StudentsController < ApplicationController
     trips_ids = checked_trips.keys 
     @trips = Trip.where(id: trips_ids)
 
-    @student.trips = @student.trips + @trips # display error messege by rescue
-
-    redirect_to @student
+    begin
+      @student.trips = @student.trips + @trips 
+    rescue 
+      flash[:alert] = "You have already booked this trip"
+    end
+      redirect_to @student
   end
 
   def remove_trip

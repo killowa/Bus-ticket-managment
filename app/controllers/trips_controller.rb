@@ -57,7 +57,6 @@ class TripsController < ApplicationController
       @trip.destroy
     end
 
-    redirect_to bus_trips_path(@bus)
   end
 
   def show

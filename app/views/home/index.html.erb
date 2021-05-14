@@ -30,7 +30,7 @@
         
             <ul>
                 <%current_user.trips.each do |trip|%>
-                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{current_user.id}/trips/#{trip.id}", method: :delete, class: "links"%></li>
+                    <li class="flex">Trip To <%=trip.destination%> <%=link_to "delete", "#{current_user.id}/trips/#{trip.id}", method: :delete , class: "links" if policy(trip).destroy?%></li>
                 <%end%>
             </ul>
         </div>

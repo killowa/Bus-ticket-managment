@@ -19,6 +19,20 @@
 
     </div>
 
+    <section class="trips flex center">
+    <div class="container card">
+        <h1 class="my1 card-title">Trips</h1>
+        <%@trips = @bus.trips%>
+        <ul>
+            <%@trips.each do |trip|%>
+                <li class="flex"><strong>A trip to <%=link_to trip.destination, bus_trip_path(@bus, trip), class: 'links'%> </strong>   <%=link_to "edit", edit_bus_trip_path(@bus, trip), class: "links"%>  <%=link_to "delete", bus_trip_path(@bus, trip),  method: :delete, data: {confirm: "Are you Sure"}, class: "links"%> </li>
+            <%end%>
+        </ul>
+
+    </div>
+    </section>
+
+
 </section>
 
  <div class="flex m1 center">
@@ -26,9 +40,7 @@
             <%= link_to "Make a Trip", new_bus_trip_path(@bus), class: "btn"%>
             <%= link_to "Take a Trip", "#{@bus.id}/add_trip", class: "btn"%>
             <%if !@bus.trips.empty?%>
-                <%= link_to "Show Trips", bus_trips_path(@bus), class: "btn"%>
+                <input type="button" id="showTrip", class="btn" value="Show Trips"> 
             <%end%>
         </div>
-
-        
-    </div>
+</div>

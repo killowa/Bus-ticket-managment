@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>BusTicket</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body class="body">
     <header>
-        <nav class="navbar">
+        <nav class="navbar bg-primary text-light">
           <div class="container flex">
 
             <h1 class="logo">Harvard</h1>
             <%if current_user%>
-            <ul>
-                <li class="nav-item"><a><%=link_to "Home", root_path%></a></li>
-                <li class="nav-item"><a><%= link_to "Trips", "/trips"%></a></li>
+            <ul class="text-light">
+                <li class="nav-item text-light"><a><%=link_to "Home", root_path%></a></li>
+                <li class="nav-item text-light"><a><%= link_to "Trips", "/trips"%></a></li>
                 
                 <%if current_user.type == "Admin"%>
-                    <li class="nav-item"><%=link_to "Buses", buses_path%></li>
-                    <li class="nav-item"><%= link_to "Students", students_path%></a></li>
+                    <li class="nav-item text-light"><%=link_to "Buses", buses_path%></li>
+                    <li class="nav-item text-light"><%= link_to "Students", students_path%></a></li>
                 <%end%>
 
                 <%if current_user%>
-                  <li class="nav-item"><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
+                  <li class="nav-item text-light"><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
                 <%else%>
-                  <li class="nav-item"><a><%= link_to "Sign In", new_user_session_path%></a></li>
-                  <li class="nav-item"><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
+                  <li class="nav-item text-light"><a><%= link_to "Sign In", new_user_session_path%></a></li>
+                  <li class="nav-item text-light"><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
                 <%end%>
             </ul>
            
@@ -37,7 +39,15 @@
           </div>
         </nav>
     </header>
+
+    <%flash.each do |type, msg|%>
+      <div class="alert alert-info">
+          <%=msg%>
+      </div>   
+    <%end%> 
     <%= yield %>
+
+    <div class="gap"></div>
 
    <footer class="footer">
       <div class="container1">
@@ -51,7 +61,7 @@
           <h2>User Types</h2>
 
           <ul>
-            <li>Admins</li>
+            <li>Admins</li> 
             <li>Students</li>
           </ul>
       </div>
@@ -59,13 +69,13 @@
       <div class="container mr2">
           <h2>Quick links</h2>
           <ul>
-              <li ><a><%=link_to "Home", root_path%></a></li>
-              <li ><a><%= link_to "Trips", "/trips"%></a></li>
+                <li ><a><%=link_to "Home", root_path%></a></li>
+                <li ><a><%= link_to "Trips", "/trips"%></a></li>
               <%if current_user%>
-              <li ><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
+                <li ><a><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></a></li>
               <%else%>
-              <li ><a><%= link_to "Sign In", new_user_session_path%></a></li>
-              <li ><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
+                <li ><a><%= link_to "Sign In", new_user_session_path%></a></li>
+                <li ><a><%= link_to "Sign Up", new_user_registration_path%></a></li>
               <%end%>
         </ul>
       </div>
