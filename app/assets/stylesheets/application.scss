@@ -1,20 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import "./variable.scss";
 
-// @mixin link($border-color, $color) {
-//     color: $color;
-//     &:hover {
-//         border-bottom: $border-color 2px solid;
-//     }
-// }
-
-// * {
-//     box-sizing: border-box;
-//     padding: 0;
-//     margin: 0;
-//     font-family: "lato" ,"sans-serif";
-// }
-
 .bg-primary {
     background: #9900cc!important;
 }
@@ -22,30 +8,6 @@
 .gap {
     height: 235px; 
 }
-
-// .footer {
-//     background-color: $primary-color;
-//     color: #fff;
-//     padding: 15px;
-//     height: 200px;
-//     width: 100%;
-//     @extend .flex;
-//     position: fixed;
-//     bottom: 0;
-
-//     .container1 {
-//         width: 320px;
-//         margin-left: 28px;
-//     }
-
-//     ul {
-//         padding: 15px;
-//     }
-// }
-
-// .mr2 {
-//     margin-right: 2em !important;
-// }
 
 body {
     background-color: #f2f2f2;
@@ -56,120 +18,12 @@ ul {
     padding: 0;
 }
 
-
-
-// h1 {
-//     font-size: 30px;
-// }
-
 a {
     text-decoration: none;
     &:hover {
         border-bottom: #fff 2px solid;
     }
 }
-
-// li {
-//     margin-top: 15px;
-// }
-
-// .links {
-//     text-decoration: none;
-//     border-bottom: none;
-//     color: #333;
-//     &:hover {
-//         color: hotpink;
-//     }
-// }
-
-// .students {
-//     a {
-//         color: #333;
-
-//         &:hover {
-//             border-bottom: #333 2px solid;
-//         }
-//     }
-// }
-
-// .container {
-//     margin: 0 20px;
-// }
-
-// .flex {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-// }
-
-// .student-show.flex {
-//     @extend .flex;
-//     justify-content: center;
-//     .card {
-//         margin-left: 20px;
-//         margin-right: 20px;
-//     }
-
-// }
-
-// .center {
-//     @extend .flex;
-//     justify-content: center;
-// }
-
-// .navbar {
-//     display: flex;
-//     align-items: center;
-//     background-color: $primary-color;
-//     color: $secondary-color;
-//     height: 80px;
-//     ul {
-//         @extend .flex;
-//         li {
-//             margin-left: 12px;
-//         }
-//     }
-
-//     .container {
-//         width: 100%;
-//     }
-// }
-// //utilities
-
-// .my1 {
-//     margin-top: 1em;
-// }
-
-// .my2 {
-//     margin-top: 2em;
-// }
-
-// .form {
-//     width: 370px;
-// }
-
-// .center {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .mr-auto {
-//     margin-right: auto;
-// }
-
-// .ml1 {
-//     margin-left: 1em;
-// }
-
-// .ml2 {
-//     margin-left: 2em;
-// }
-
-// .ml0 {
-//     margin-left: 0;
-// }
 
 .card {
     background-color: #fff;
@@ -179,18 +33,12 @@ a {
     padding: 10px 20px;
 }
 
-// .form-control {
-//     width: 137px;
-//     @extend .flex;
-// }
-
 .card-title {
     margin-bottom: 20px;
     text-align: center;
     border-bottom: #333 2px solid;
 }
 
-// // trips
 
 .btn {
     background-color: #ffc107;
@@ -234,33 +82,3 @@ a {
         justify-content: space-between;
     }
 }
-
-// .btn {
-//     color: #fff(165, 156, 156);
-//     background-color: rgb(175, 187, 6);
-//     border-radius: 10px;
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-//     padding: 8px;
-//     &:hover {
-//         transform: scale(0.98);
-//     }
-// }
-
-// .badge {
-//     padding: 3px 4px;
-//     border-radius: 5px;
-//     color: #fff;
-// }
-
-// .bg-success {
-//     background-color: rgb(26, 128, 5);
-// }
-
-// // .alert {
-// //     @extend .container, .center;
-// //     background-color: rgb(211, 81, 81);
-// //     color: #fff;
-// //     font-weight: bold;
-// //     height: 40px;
-// // }

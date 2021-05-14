@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get "buses/:id/add_trip", to: "buses#add_trip" #prevent student from accessing it
   post "buses/:id/save_trip", to: "buses#save_trip"
 
+  get "balance_update", to: "students#update_balance"
+
+  patch "balance_update", to: "students#save_new_balance"
+
 
   resources :students
   resources :buses do

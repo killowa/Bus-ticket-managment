@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_025307) do
+ActiveRecord::Schema.define(version: 2021_05_14_105625) do
 
   create_table "buses", force: :cascade do |t|
     t.integer "capacity"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_025307) do
     t.string "name"
     t.string "type"
     t.string "department"
+    t.decimal "balance", default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

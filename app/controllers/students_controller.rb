@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token, only: :add_trip
+  skip_before_action :verify_authenticity_token, only: [:add_trip, :save_new_balance]
 
   def index
     @students = Student.all
@@ -28,6 +28,21 @@ class StudentsController < ApplicationController
       flash[:alert] = "You have already booked this trip"
     end
       redirect_to @student
+  end
+
+  def update_balance
+    @student = current_user
+  end
+
+  def save_new_balance
+
+    @student = current_user
+    current_user.balance += params[:student][:new_balance].to_d
+    current_user.update(balance: current_user.balance)
+
+
+
+    redirect_to @student
   end
 
   def remove_trip
@@ -75,6 +90,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:name, :department)
+    params.require(:student).permit(:name, :department, :new_balance)
   end
 end

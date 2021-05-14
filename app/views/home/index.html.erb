@@ -16,10 +16,16 @@
             <strong>Department:</strong>
             <%=current_user.department%>
         </div>
+
+        <div class="d-flex justify-content-between my-1">
+            <strong>Balance:</strong>
+            <%=current_user.balance%>
+        </div>
         
         <%if current_user.type == "Student"%>
             <div class="div my2">
-                <%=link_to "Book Trip", "#{current_user.id}/trips", class: "btn btn-warning my-1"%>
+                <%=link_to "Book Trip", "#{current_user.id}/trips", class: "btn btn-warning mx-1 my-1"%>
+                <%=link_to "Update Balance", "balance_update", class: "btn btn-warning mx-1 my-1"%>
             </div>
         <%end%>
     </div>

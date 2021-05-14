@@ -1,4 +1,9 @@
 <%=form_with model: @bus do |form|%>
+    <%@bus.errors.full_messages do |error|%>
+        <div class="alert alert-danger">
+            <%=error%>
+        </div>
+    <%end%>
 
     <div class="container flex my1">
         <%=form.label :capacity%>

@@ -1,0 +1,12 @@
+<div class="container card">
+    <h1 class="card-title">Update Balance</h1>
+
+    <%=form_with model: @student, url: "balance_update" do |f|%>
+        <div>
+            <%=f.label :new_balance%>
+            <%=f.text_field :new_balance%>
+        </div>
+
+        <%=f.submit class: "btn btn-warning", value: "Update Balance"%>        
+    <%end%>
+</div>

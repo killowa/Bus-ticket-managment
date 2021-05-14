@@ -18,6 +18,7 @@ class BusesController < ApplicationController
 
   def show
     @bus = Bus.find(params[:id])
+
   end
 
   def add_trip
@@ -25,10 +26,15 @@ class BusesController < ApplicationController
   end
 
   def save_trip
+    logger = Logger.new(STDOUT)
     @trip = Trip.find(params[:trip_id])
     @bus = Bus.find(params[:id])
 
-    @bus.trips << @trip
+    if !prebooked? @bus, @trip
+      @bus.trips << @trip
+    else
+      flash[:alert] = "Trip is already Booked."
+    end
 
     redirect_to @bus
   end
@@ -75,6 +81,15 @@ class BusesController < ApplicationController
   private
     def bus_params
       params.require(:bus).permit(:capacity)
+    end
+
+  private
+    def prebooked?(bus, trip)
+      trips_ids = []
+      bus.trips.each do |trip|
+        trips_ids << trip.id
+      end
+      trips_ids.include?(trip.id)
     end
 
 end
